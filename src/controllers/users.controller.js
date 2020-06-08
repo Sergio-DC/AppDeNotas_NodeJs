@@ -39,7 +39,7 @@ usersCtrl.singup = async (req, res) => {
       newUser.password = await newUser.encryptPassword(password);
       await newUser.save();
       req.flash("success_msg", "You are registered.");
-      res.redirect("/users/signin");
+      res.redirect("/");
     }
   }
 };
@@ -50,14 +50,14 @@ usersCtrl.renderSigninForm = (req, res) => {
 
 usersCtrl.signin = passport.authenticate("local", {
     successRedirect: "/notes",
-    failureRedirect: "/users/signin",
+    failureRedirect: "/",
     failureFlash: true
   });
 
 usersCtrl.logout = (req, res) => {
   req.logout();
   req.flash("success_msg", "You are logged out now.");
-  res.redirect("/users/signin");
+  res.redirect("/");
 };
 
 module.exports = usersCtrl;
