@@ -14,14 +14,27 @@ require('./config/passport');
 app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
 
-// Helper HandleBar
-app.engine('.hbs', exphbs({
+var hbs = exphbs.create({
   defaultLayout: 'main',
   layoutsDir: path.join(app.get('views'), 'layouts'),
   partialsDir: path.join(app.get('views'), 'partials'),
-  helpers: require("./helpers/handlebars.js")(exphbs),
-  extname: '.hbs'
-}));
+  extname: '.hbs',
+  // Specify helpers which are only registered on this instance.
+  helpers: {
+      ifCond: function(v1, v2, options) {
+        console.log('v1: ', v1);
+        console.log('v2: ', v2);
+        if(v1 === v2) {
+          return options.fn(this);
+        }
+        return options.inverse(this);
+      }
+  }
+});
+
+
+// Helper HandleBar
+app.engine('.hbs', hbs.engine);
 
 app.set('view engine', '.hbs');
 
