@@ -1,3 +1,12 @@
+<script>
+Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+  if(v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+</script>
+
 {{#each errors}}
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
   {{text}}
@@ -21,6 +30,18 @@
         <div class="form-group">
           <textarea name="description" class="form-control">{{note.description}}</textarea>
         </div>
+        <div class="input-group mb-3">
+          <select class="custom-select" name="estado">
+            
+            <option value="por hacer" {{#ifCond estado "por hacer"}}selected="selected"{{/if}}>por hacer</option>
+            <option value="haciendo" {{#ifCond estado "haciendo"}}selected="selected"{{/if}}>haciendo</option>
+            <option value="terminado" {{#ifCond estado "terminado"}}selected="selected"{{/if}}>terminado</option>
+          </select>
+          <div class="input-group-append">
+            <label class="input-group-text" for="inputGroupSelect02">Options</label>
+          </div>
+        </div>
+
         <div class="form-group">
           <button class="btn btn-primary btn-block" type="submit">
             Save
