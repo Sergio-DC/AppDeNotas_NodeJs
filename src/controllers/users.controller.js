@@ -44,6 +44,10 @@ usersCtrl.singup = async (req, res) => {
   }
 };
 
+usersCtrl.renderAbout = (req, res) => {
+  res.render("about");
+};
+
 usersCtrl.renderSigninForm = (req, res) => {
   res.render("users/signin");
 };

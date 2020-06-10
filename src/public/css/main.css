@@ -50,6 +50,11 @@ body {
   color: var(--note_estado_color);
   font-weight: bold;
 }
+
+.card_about {
+  max-width: 800px;
+}
+
 @media (min-width: 34em) {
   .card-columns {
       -webkit-column-count: 2;

@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 const {
+  renderAbout,
   renderSignUpForm,
   singup,
   renderSigninForm,
@@ -9,8 +10,11 @@ const {
 } = require("../controllers/users.controller");
 
 // Routes
+router.get("/about", renderAbout);
 
-router.get("/", renderSigninForm);//Sign in
+router.get("/", renderAbout);
+
+router.get("/users/sigin", renderSigninForm);//Sign in
 
 router.get("/users/signup", renderSignUpForm);
 
