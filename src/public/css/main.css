@@ -1,11 +1,83 @@
+:root {
+  --card_color: #F2F2F2;
+  --bg_color: #F2E0D0;
+  --title_card_color: #424242;
+  --note_estado_color: #146575;
+}
 body {
   /* background: #33ff49;  
   background: -webkit-linear-gradient(to right,#33ff49,#33ff49);
   background: linear-gradient(to right, #2B32B2, #1488CC); */
 
-  background-color: #00f668;
+  background-color: var(--bg_color);
 }
 
 .logo {
-  width: 30%;
+  width: 60%;
+}
+
+.login_card {
+  background-color:var(--card_color);
+  border-radius: 20px 20px 20px 20px;
+}
+
+.input_text_style {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid;
+}
+.input_text_style:focus {
+  background-color: transparent;
+}
+
+.note_card {
+  background-color: var(--card_color);
+  border-radius: 20px 20px 20px 20px;
+}
+
+.title_note
+{
+  font-weight: bold;
+  color: var(--title_card_color);
+}
+
+.some_button {
+  border-radius: 30px;
+}
+
+.note_estado{
+  text-transform: capitalize;
+  color: var(--note_estado_color);
+  font-weight: bold;
+}
+@media (min-width: 34em) {
+  .card-columns {
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      column-count: 2;
+  }
+}
+
+@media (min-width: 48em) {
+  .card-columns {
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      column-count: 3;
+  }
+}
+
+@media (min-width: 62em) {
+  .card-columns {
+      -webkit-column-count: 4;
+      -moz-column-count: 4;
+      column-count: 4;
+  }
+}
+
+@media (min-width: 75em) {
+  .card-columns {
+      -webkit-column-count: 5;
+      -moz-column-count: 5;
+      column-count: 5;
+  }
 }

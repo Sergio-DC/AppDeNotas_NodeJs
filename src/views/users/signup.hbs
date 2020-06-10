@@ -1,25 +1,26 @@
 <div class="row">
   <div class="col-md-4 mx-auto">
-    <div class="card">
+    <div class="card login_card text-center">
       <div class="card-header">
         Account Register 
       </div>
+        <img class=" mx-auto d-block logo m-4" src="/img/new_user.png" alt="Logo">
       <div class="card-body">
         <form action="/users/signup" method="POST">
           <div class="form-group">
-            <input type="text" class="form-control" name="name" placeholder="Name" value="{{name}}">
+            <input type="text" class="form-control input_text_style" name="name" placeholder="Name" value="{{name}}">
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" name="email" placeholder="Email" value="{{email}}">
+            <input type="email" class="form-control input_text_style" name="email" placeholder="Email" value="{{email}}">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" value="{{password}}">
+            <input type="password" class="form-control input_text_style" name="password" placeholder="Password" value="{{password}}">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" value="{{confirm_password}}">
+            <input type="password" class="form-control input_text_style" name="confirm_password" placeholder="Confirm Password" value="{{confirm_password}}">
           </div>
-          <button class="btn btn-primary btn-block">
-            Signup 
+          <button class="btn btn-primary btn-block some_button">
+            Register 
           </button>
         </form>
       </div>

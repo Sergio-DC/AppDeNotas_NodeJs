@@ -11,10 +11,10 @@ notesCtrl.createNewNote = async (req, res) => {
   const { title, description } = req.body;
   const errors = [];
   if (!title) {
-    errors.push({ text: "Please Write a Title." });
+    errors.push({ text: "La Nota requiere de un Titulo :(" });
   }
   if (!description) {
-    errors.push({ text: "Please Write a Description" });
+    errors.push({ text: "La Nota requiere de una Descripcion :(" });
   }
   if (errors.length > 0) {
     res.render("notes/new-note", {
@@ -26,7 +26,7 @@ notesCtrl.createNewNote = async (req, res) => {
     const newNote = new Note({ title, description });
     newNote.user = req.user.id;
     await newNote.save();
-    req.flash("success_msg", "Note Added Successfully");
+    req.flash("success_msg", "La Nota se ha Agregado correctamente :)");
     res.redirect("/notes");
   }
 };
@@ -40,7 +40,7 @@ notesCtrl.renderNotes = async (req, res) => {
 notesCtrl.renderEditForm = async (req, res) => {
   const note = await Note.findById(req.params.id);
   if (note.user != req.user.id) {
-    req.flash("error_msg", "Not Authorized");
+    req.flash("error_msg", "No estas autorizado :(");
     return res.redirect("/notes");
   }
   res.render("notes/edit-note", { note });
@@ -49,13 +49,13 @@ notesCtrl.renderEditForm = async (req, res) => {
 notesCtrl.updateNote = async (req, res) => {
   const { title, description, estado } = req.body;
   await Note.findByIdAndUpdate(req.params.id, { title, description, estado});
-  req.flash("success_msg", "Note Updated Successfully");
+  req.flash("success_msg", "La Nota se ha Actualizado correctamente :)");
   res.redirect("/notes");
 };
 
 notesCtrl.deleteNote = async (req, res) => {
   await Note.findByIdAndDelete(req.params.id);
-  req.flash("success_msg", "Note Deleted Successfully");
+  req.flash("success_msg", "La Nota se ha Eliminado correctamente :)");
   res.redirect("/notes");
 };
 
